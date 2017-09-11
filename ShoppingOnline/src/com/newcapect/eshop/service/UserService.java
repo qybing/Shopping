@@ -1,5 +1,5 @@
 package com.newcapect.eshop.service;
-ÄãºÃÄãºÃ
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,11 +25,11 @@ public class UserService {
 		   String oldpwd = rs.getString("password");
 		   stmt.close();
 		   if(!oldpwd.equals(old)){
-			   System.out.println("Ô­ÃÜÂë´íÎó");
+			   System.out.println("åŸå¯†ç é”™è¯¯");
 			   return 0;
 		   }
 		   if (!first.equals(second)){
-			   System.out.println("Á½´ÎÃÜÂë²»Ò»Ñù");
+			   System.out.println("ä¸¤æ¬¡å¯†ç ä¸ä¸€æ ·");
 			   return 0;
 		   }
 		   sql = "update t_users set password=? where id =?";
