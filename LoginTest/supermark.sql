@@ -1,0 +1,32 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : localhost
+Source Server Version : 50636
+Source Host           : localhost:3306
+Source Database       : supermark
+
+Target Server Type    : MYSQL
+Target Server Version : 50636
+File Encoding         : 65001
+
+Date: 2017-09-12 18:55:45
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for users
+-- ----------------------------
+DROP TABLE IF EXISTS `users`;
+CREATE TABLE `users` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(100) NOT NULL,
+  `user_pwd` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of users
+-- ----------------------------
+INSERT INTO `users` VALUES ('1', '1', '1');
