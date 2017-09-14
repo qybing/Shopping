@@ -21,8 +21,8 @@ public class UserService {
 			  stmt.setString(2, user_pwd);
 			  rs = stmt.executeQuery();
 			  if(rs.next()){
-				  Users u = new Users(rs.getString("user_id"),
-						  rs.getString("user_pwd"));
+				  Users u = new Users(rs.getString("user_id"),rs.getString("user_pwd"),
+						  rs.getString("phone"),rs.getInt("is_admin"));
 				  System.out.println("用户："+rs.getString("user_id")+"登录成功");
 //				  System.out.println(rs.getString("user_pwd"));
 //				  System.out.println("登录成功");

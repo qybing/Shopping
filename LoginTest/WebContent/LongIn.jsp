@@ -45,11 +45,18 @@ button {
    String user_pwd = request.getParameter("user_pwd");
    UserService us = new UserService();
    Users u = us.Login(user_id, user_pwd);
+   /* System.out.println(u.getUser_pwd()); */
    if (u!=null){
 	   //把当前的登录用户对象，存储在会话中
+	   if(u.getIs_admin()==1){
 	   session.setAttribute("user", u);
-	   System.out.println(u);
-	   response.sendRedirect("index.jsp");
+	   response.sendRedirect("admin.jsp");
+	   }
+	   else{
+		   session.setAttribute("user", u);
+		   response.sendRedirect("user.jsp");
+		   
+	   }
    }
  %>
 <div class="Userlogin">
