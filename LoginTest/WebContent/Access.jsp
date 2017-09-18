@@ -11,8 +11,9 @@
 <%
 	Users user = (Users) session.getAttribute("user");
 	if(user == null){
-		response.sendRedirect("login.jsp");
+		response.sendRedirect("index.jsp");
 	}
 %>
+
 </body>
 </html>

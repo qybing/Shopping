@@ -4,12 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-import com.jovan.entity.DbUtil;
-import com.jovan.entity.Users;
+import com.jovan.entity.User;
+import com.jovan.util.DbUtil;
 
 
 public class UserService {
-	public Users Login(String user_id,String user_pwd){
+	public User Login(String user_id,String user_pwd){
 		Connection con = null;
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
@@ -21,12 +21,15 @@ public class UserService {
 			  stmt.setString(2, user_pwd);
 			  rs = stmt.executeQuery();
 			  if(rs.next()){
-				  Users u = new Users(rs.getString("user_id"),
-						  rs.getString("user_pwd"));
+				  User u = new User(0, rs.getString("user_id"),
+						  rs.getString("user_pwd"), 0);
 				  System.out.println("用户："+rs.getString("user_id")+"登录成功");
 //				  System.out.println(rs.getString("user_pwd"));
 //				  System.out.println("登录成功");
 				  return u;
+			  }
+			  else{
+				  System.out.println("登录失败");
 			  }
 		} catch (Exception e) {
 			e.printStackTrace();

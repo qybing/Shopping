@@ -1,4 +1,4 @@
-<%@page import="com.jovan.entity.Users"%>
+
 <%@page import="com.jovan.service.UserService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -40,26 +40,14 @@ button {
 <title>用户登录</title>
 </head>
 <body>
- <%
-   String user_id = request.getParameter("user_id");
-   String user_pwd = request.getParameter("user_pwd");
-   UserService us = new UserService();
-   Users u = us.Login(user_id, user_pwd);
-   if (u!=null){
-	   //把当前的登录用户对象，存储在会话中
-	   session.setAttribute("user", u);
-	   System.out.println(u);
-	   response.sendRedirect("index.jsp");
-   }
- %>
 <div class="Userlogin">
- <form action="LongIn.jsp" method="post">
+ <form action="dologin.jsp" method="post">
 	账号：<input type="text" id="user_id" name="user_id" placeholder="请输入你的账号">
 	<br>
 	密码：<input type="password" id="user_pwd" name="user_pwd" placeholder="请输入你的密码">
-	<br><br>
+	<br>${error}<br>
 	&nbsp &nbsp<button type="submit">登录</button>
-	&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<button type="button" value="注册"><a href="login.jsp">注册</a></button>
+	&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp<button type="button">注册<a href="login.jsp"></a></button>
  </form>
 </div>
 </body>
