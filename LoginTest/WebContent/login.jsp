@@ -40,6 +40,28 @@ button {
 <title>用户登录</title>
 </head>
 <body>
+<<<<<<< HEAD:LoginTest/WebContent/login.jsp
+=======
+ <%
+   String user_id = request.getParameter("user_id");
+   String user_pwd = request.getParameter("user_pwd");
+   UserService us = new UserService();
+   Users u = us.Login(user_id, user_pwd);
+   /* System.out.println(u.getUser_pwd()); */
+   if (u!=null){
+	   //把当前的登录用户对象，存储在会话中
+	   if(u.getIs_admin()==1){
+	   session.setAttribute("user", u);
+	   response.sendRedirect("admin.jsp");
+	   }
+	   else{
+		   session.setAttribute("user", u);
+		   response.sendRedirect("user.jsp");
+		   
+	   }
+   }
+ %>
+>>>>>>> 678956727558584da35a1124efadf4707576dad5:LoginTest/WebContent/LongIn.jsp
 <div class="Userlogin">
  <form action="dologin.jsp" method="post">
 	账号：<input type="text" id="user_id" name="user_id" placeholder="请输入你的账号">
