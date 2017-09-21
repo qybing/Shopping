@@ -1,0 +1,82 @@
+create table user(
+	u_id int(10) PRIMARY key auto_increment,
+	u_name varchar(50),
+	u_pwd varchar(50),
+	u_sex varchar(5),
+	u_level int(5)
+)auto_increment = 1;
+
+insert into user(u_name,u_pwd,u_sex,u_level) values ("admin","123456","男",1);
+insert into user(u_name,u_pwd,u_sex,u_level) values ("吴亦凡","123456","男",1);
+insert into user(u_name,u_pwd,u_sex,u_level) values ("范冰冰","123456","女",0);
+insert into user(u_name,u_pwd,u_sex,u_level) values ("张三","123456","男",0);
+
+create table Menu(
+	m_id int(10) PRIMARY key auto_increment,
+	m_name varchar(50),
+	u_level int(5),
+	m_address VARCHAR(200)
+)auto_increment = 1;
+
+insert into menu(m_name,u_level,m_address) VALUES ("商品管理","1","");
+insert into menu(m_name,u_level,m_address) VALUES ("设置商品属性","1","");
+insert into menu(m_name,u_level,m_address) VALUES ("订单管理","1","");
+insert into menu(m_name,u_level,m_address) VALUES ("活动管理","1","");
+
+insert into menu(m_name,u_level,m_address) VALUES ("所有商品","0","");
+insert into menu(m_name,u_level,m_address) VALUES ("我的购物车","0","");
+insert into menu(m_name,u_level,m_address) VALUES ("每日活动","0","");
+insert into menu(m_name,u_level,m_address) VALUES ("意见建议","0","");
+
+
+create table book_info(
+	b_id int(10) PRIMARY key auto_increment,
+	b_name varchar(100),
+	b_author VARCHAR(50),
+	b_price DECIMAL(10),
+	b_number int(10),
+	b_type int(10),
+	b_img VARCHAR(200),
+	b_comment VARCHAR(200)
+)auto_increment = 1;
+
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("三体","刘慈欣",50,30,1,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("银河英雄传说","田中芳树",50,30,1,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("加勒比海盗","迪士尼",50,30,1,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("安迪密恩的觉醒","丹·西蒙斯",50,30,1,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ('"太空漫游"四部曲',"阿瑟•C.克拉克",50,30,1,"","这是一本国外文学书籍");
+
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("人类简史","尤瓦尔·赫拉利",50,30,2,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("丝绸之路","彼得·弗兰科潘",50,30,2,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("全球通史","斯塔夫里阿诺斯",50,30,2,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("南渡北归","岳南",50,30,2,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("大清帝国","增井经夫",50,30,2,"","这是一本国外文学书籍");
+
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("艺术的故事","E.H.贡布里希",50,30,3,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("色彩与光线","詹姆斯·格尔尼",50,30,3,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("设计心理学","唐纳德·A·诺曼",50,30,3,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("地球与太空","尼尔马拉·纳塔瑞杰",50,30,3,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("三国演义(连环画)","罗贯中",50,30,3,"","这是一本国外文学书籍");
+
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("瑜伽之光","艾扬格",50,30,4,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("施瓦辛格健身全书","阿诺德•施瓦辛格",50,30,4,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("力量训练基础","马克·瑞比托",50,30,4,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("徒手斗士","帕维尔·塔索林",50,30,4,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("硬派健身","斌卡",50,30,4,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("高尔夫完全手册","史蒂夫·内维尔",50,30,4,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("中国象棋谱大全","程明松",50,30,4,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("街头健身","刘慈欣",50,30,4,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("芭蕾性格舞蹈教材教学法","杨越",50,30,4,"","这是一本国外文学书籍");
+insert into book_info(b_name,b_author,b_price,b_number,b_type,b_img,b_comment) VALUES ("骨科临床解剖学","靳安民",50,30,4,"","这是一本国外文学书籍");
+
+
+
+create table type(
+	t_id int(10) PRIMARY key auto_increment,
+	t_name varchar(100) 
+)auto_increment = 1;
+
+INSERT into type(t_name) VALUES ("科幻小说");
+insert into type(t_name) values ("世界历史");
+insert into type(t_name) values ("艺术摄影");
+insert into type(t_name) values ("运动健身");
