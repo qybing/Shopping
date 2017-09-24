@@ -7,7 +7,7 @@ public class Food implements Serializable{
 	private Integer id;
 	private String food_name;
 	private String food_store;
-	private float food_price;
+	private Double food_price;
 	private Integer min_price;
 	private Integer  max_price;
 	private String food_picture;
@@ -32,10 +32,11 @@ public class Food implements Serializable{
 	public void setFood_store(String food_store) {
 		this.food_store = food_store;
 	}
-	public float getFood_price() {
+	
+	public Double getFood_price() {
 		return food_price;
 	}
-	public void setFood_price(float food_price) {
+	public void setFood_price(Double food_price) {
 		this.food_price = food_price;
 	}
 	public String getFood_picture() {

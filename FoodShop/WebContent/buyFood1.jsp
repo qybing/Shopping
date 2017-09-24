@@ -36,6 +36,7 @@ function setTotal(){
 </head>
 <body>
 	<h2>购物车商品列表</h2>
+	<c:forEach var="cartItem" items="${cartItemList}">
 		<div class="bookDiv">
 			<div class="bookmsg">
 				<table id="tab"> 
@@ -46,24 +47,22 @@ function setTotal(){
 					    <td>购买数量</td>	
 					    <td>总价</td>
 					</tr>
-					<c:forEach var="car" items="${carItemMap}">
-					<tr>
-						<td>${car.value.food.food_name }</td>
+					<tr class="sum">
+						<td>${cartItem.gname}</td>	
 						<td>商品图片</td>
-						<td>${car.value.food.food_price }</td>
-						<td>${car.value.count }</td>
-						<td>${car.value.food.food_price * car.value.count }</td>
+						<td><span class="price">${cartItem.gprice}</span></td>
+					    <td> 
+							<input class="min" name="" type="button" value="-" /> 
+							<input class="text_box" name="" type="text" value="1" /> 
+							<input class="add" name="" type="button" value="+" /> 
+						</td> 
+					    <td><p><label id="total"></label></p></td>	
 					</tr>
-					<c:set var="total" value="${total+car.value.food.food_price * car.value.count}"></c:set>
-					</c:forEach>
-					<tr>
-						<td>购物总价：</td>
-						<td colspan="5">${total}</td>
-					</tr> 
 				</table>
-		
+				<p>总价：<label id="total"></label></p> 
 			</div>
 		</div>
 		<hr/>
+		</c:forEach>
 </body>
 </html>

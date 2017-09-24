@@ -41,9 +41,22 @@ $(function(){
 	});
 	$("input[name='buy_food']").click(function() {
 		var food_id = $("#buy-food-id").html();
+		alert("2")
 		window.location.href = "doBuyFood.jsp?food_id="+food_id;	
 	});
-	
+	var page = 0;
+	$("#next-page").click(function(){
+		page++;	
+		alert(page);
+		window.location.href = "dofood.jsp?page="+page;
+
+	})
+	$("#last-page").click(function () {
+		var page = 1;
+		window.location.href = "dofood.jsp?page="+page;
+		alert(page);
+		
+	})
 	
 });
 </script>
@@ -132,10 +145,11 @@ a{
 #moreDiv{
 	margin-top:30px;
 	text-align: center;
+	
 }
-#moreBtn{
+#moreBtn,#last-page,#next-page{
 	font-size: 50px;
-	width: 100%;
+
 }
 #b_ssdiv{
 	display: none;
@@ -190,7 +204,7 @@ a{
 				<input type="hidden" name="name" value="${food.food_name }">
 				<table id="sxtab">
 					<tr>
-						<th>图书价格：</th>
+						<th>食品价格：</th>
 						<td><input class="price" size="4" type="text" name="min_price"/> — <input class="price" size="4" type="text" name="max_price"/>&nbsp;元</td>
 					</tr>
 					<tr>
@@ -204,7 +218,6 @@ a{
 		<c:forEach var="food" items="${foodList}">
 		<div class="bookDiv">
 			<div class="bookmsg">
-			
 				<dl>
 					<dt><img src="${food.food_picture}"/></dt>
 					<dt >${food.food_name }</dt>
@@ -217,7 +230,15 @@ a{
 		</div>
 		<hr/>
 		</c:forEach>
-		<div id="moreDiv"><input id="moreBtn" type="button" value="加载更多"/></div>
+		
+		<div id="moreDiv">	
+			<input id="last-page" type="button" value="上一页"/>
+			<input id="next-page" type="button" value="下一页"/>
+			<p id="moreBtn">共${pages_sum}页 到<input type="text" name="page" style="width: 10%;" id="moreBtn">
+				<input id="moreBtn" type="button" value="确定"/>
+			</p>
+		
+		</div>
 	</div>
 </body>
 </html>

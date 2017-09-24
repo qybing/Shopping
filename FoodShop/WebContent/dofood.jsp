@@ -14,25 +14,35 @@
 <%
 	request.setCharacterEncoding("utf-8");
 	int nowPage = 1;
+	String nowpage = request.getParameter("page");
 	String min_price = request.getParameter("min_price");
 	String max_price =  request.getParameter("max_price");
 	String food_name = request.getParameter("food_name");
-	
+	if(nowpage==null){
+		nowPage = 1;
+	}
+	else{
+		nowPage = Integer.parseInt(nowpage);
+	}
 	Food food = new Food();
 	if( min_price != null && !min_price.equals("")){
 		food.setMin_price(Integer.parseInt(min_price));
 	}
 	if( max_price != null && !max_price.equals("")){
-		food.setMin_price(Integer.parseInt(max_price));
+		food.setMax_price(Integer.parseInt(max_price));
 	}
 	if( food_name != null && !food_name.equals("")){
 		food.setFood_name(food_name);
 	}
 	FoodBizImpl foodBizImpl =  new FoodBizImpl();
 	/* List<Food> foodList = foodBizImpl.findAllFoods(); */
-	List<Food> foodList = foodBizImpl.findFoods(food);
+    int pages_sum = foodBizImpl.findFoodsPages(food);
+	/* System.out.print(pages_sum); */ 
+	List<Food> foodList = foodBizImpl.findFoods(nowPage,food);
+	
 	session.setAttribute("foodList", foodList);
 	session.setAttribute("food", food);
+	session.setAttribute("pages_sum", pages_sum);
 	request.getRequestDispatcher("food.jsp").forward(request, response);
 %>
 </body>

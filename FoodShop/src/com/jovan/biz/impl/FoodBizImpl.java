@@ -12,16 +12,22 @@ import com.jovan.entity.Food;
 public class FoodBizImpl implements FoodBiz {
 	private FoodDao fooddao = new FoodDaoImpl();
     
-	public List<Food> findAllFoods() throws Exception{
+/*	public List<Food> findAllFoods() throws Exception{
 		Connection con = DbUtil.getConnection();
 		List<Food> foodlist = fooddao.findAllFoods();
 		DbUtil.close(con);
 		return foodlist;
 		
-	}
-	public List<Food> findFoods(Food food) throws Exception{
+	}*/
+	public int findFoodsPages(Food food) throws Exception{
 		Connection con = DbUtil.getConnection();
-		List<Food> foodlist = fooddao.findFoods(food);
+		int pages_sum = fooddao.findFoodsPages(food);
+		con.close();
+		return pages_sum;
+	}
+	public List<Food> findFoods(int pages,Food food) throws Exception{
+		Connection con = DbUtil.getConnection();
+		List<Food> foodlist = fooddao.findFoods(pages,food);
 		DbUtil.close(con);
 		return foodlist;
 	}
