@@ -1,6 +1,9 @@
 package com.jovan.entity;
 
-public class Food {
+import java.io.Serializable;
+
+public class Food implements Serializable{
+	private static final long serialVersionUID = 1L;
 	private Integer id;
 	private String food_name;
 	private String food_store;

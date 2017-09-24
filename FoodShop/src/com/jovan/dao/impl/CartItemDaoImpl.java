@@ -15,15 +15,17 @@ public class CartItemDaoImpl implements CartItemDao {
 	private Connection con = null;
 	private PreparedStatement stmt = null;
 	private ResultSet rs = null;
+	private static List <CartItem> cartItemList = new ArrayList<>();
 	
+	
+	// 查询单个物品
 	public List<CartItem> addFoods(int id,int num) throws Exception{
-		List <CartItem> cartItemList = new ArrayList<>();
 		con = DbUtil.getConnection();
 		String sql = "select * from food where id =?";
 		stmt = con.prepareCall(sql);
 		stmt.setInt(1,id);
 		rs = stmt.executeQuery();
-		while(rs.next()){
+		if(rs.next()){
 			CartItem cartItem = new CartItem();
 			cartItem.setId(rs.getInt("id"));
 			cartItem.setGname(rs.getString("food_name"));

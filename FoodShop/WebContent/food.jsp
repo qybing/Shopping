@@ -40,8 +40,8 @@ $(function(){
 		
 	});
 	$("input[name='buy_food']").click(function() {
-		var food_id = $("#buy-food-id").val();
-		window.location.href = "doshopping.jsp?food_id="+food.id;	
+		var food_id = $("#buy-food-id").html();
+		window.location.href = "doBuyFood.jsp?food_id="+food_id;	
 	});
 	
 	

@@ -1,8 +1,6 @@
 package com.jovan.biz.impl;
 
 import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.List;
 
 import com.jovan.biz.FoodBiz;
@@ -26,6 +24,13 @@ public class FoodBizImpl implements FoodBiz {
 		List<Food> foodlist = fooddao.findFoods(food);
 		DbUtil.close(con);
 		return foodlist;
+	}
+	public Food findFoodsById(int food_id) throws Exception{
+		Connection con = DbUtil.getConnection();
+		Food food = fooddao.findFoodsById(food_id);
+		con.close();
+		return food;
+		
 	}
 
 }

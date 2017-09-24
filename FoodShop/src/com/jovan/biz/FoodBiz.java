@@ -8,6 +8,7 @@ public interface FoodBiz {
 
 	public List<Food> findAllFoods() throws Exception;
 	public List<Food> findFoods(Food food) throws Exception;
+	public Food findFoodsById(int food_id) throws Exception;
 	
 	
 }

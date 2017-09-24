@@ -35,7 +35,23 @@ public class FoodDaoImpl implements FoodDao{
 		}
 		return foodList;	
 	}
-	
+	public Food findFoodsById(int food_id) throws Exception{
+		Food food = null;
+		con = DbUtil.getConnection();
+		String sql = "select * from food where id =?";
+		stmt = con.prepareStatement(sql);
+		stmt.setInt(1, food_id);
+		rs = stmt.executeQuery();
+		if(rs.next()){
+			food = new Food();
+			food.setId(food_id);
+			food.setFood_name(rs.getString("food_name"));
+			food.setFood_store(rs.getString("food_store"));
+			food.setFood_price(rs.getFloat("food_price"));
+			food.setFood_picture(rs.getString("picture"));
+		}
+		return food;
+	}
 	
 	public List<Food> findFoods(Food food) throws Exception{
 		List<Food> foodList = new ArrayList<>();
