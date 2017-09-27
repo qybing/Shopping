@@ -35,7 +35,9 @@ INSERT INTO `food` VALUES ('1', '良品铺子手撕面包营养早餐食品蛋�
 INSERT INTO `food` VALUES ('2', '【三只松鼠_猪肉猪肉脯210g】休闲食品小吃零食靖江特产猪肉干', '三只松鼠旗舰店', '17.90', 'images/picture2.png');
 INSERT INTO `food` VALUES ('3', '良品铺子靖江猪肉脯 特产零食小吃猪肉干肉脯猪肉铺原味休闲食品', '良品铺子旗舰店', '18.90', 'images/picture3.png');
 INSERT INTO `food` VALUES ('4', '【天猫超市】卫龙小面筋辣条280g辣味豆干80后怀旧麻辣零食小吃', '天猫超市', '9.90', 'images/picture4.png');
-
+INSERT INTO `food` VALUES ('5', '聚【百草味-夹心麻薯210gx3袋】零食小吃特产美食 早餐食品糕点', '百草味旗舰店', '25.90', 'images/picture5.png');
+INSERT INTO `food` VALUES ('6', '【天猫超市】港荣蒸蛋糕1kg早餐糕点手撕小面包网红零食品整箱', '天猫超市', '38.90', 'images/picture6.png');
+INSERT INTO `food` VALUES ('7', '【天猫超市】百草味熟食 白芝麻猪肉脯180g 靖江零食肉干休闲小吃', '天猫超市', '15.90', 'images/picture7.png');
 -- ----------------------------
 -- Table structure for users
 -- ----------------------------
