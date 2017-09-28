@@ -58,7 +58,8 @@ public class UserServlet extends HttpServlet {
 			}
 			else{
 				session.setAttribute("users", users);
-				response.sendRedirect("doadmin.jsp");
+				UserType(request,response);
+				/*response.sendRedirect("doadmin.jsp");*/
 			}
 
 		} catch (Exception e) {
@@ -66,5 +67,20 @@ public class UserServlet extends HttpServlet {
 			e.printStackTrace();
 		}
 	}
+   public void UserType(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException{
+	   try {
+		request.setCharacterEncoding("utf-8");
+			//获取用户的信息
+		   	HttpSession session = request.getSession();
+			Users users = (Users)session.getAttribute("users");
+			UserTypeBizImpl usertypeBiz = new UserTypeBizImpl();
+			List<UserType> usertypelist = usertypeBiz.findUserType(users);
+			session.setAttribute("usertypelist", usertypelist);
+			request.getRequestDispatcher("admin.jsp").forward(request, response);
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+   }
 
 }

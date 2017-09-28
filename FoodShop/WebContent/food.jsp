@@ -33,21 +33,21 @@ $(function(){
 	$("input[name='ssbtn']").click(function() {
 		var food_name = $("input[name='food_name']").val();
 		if(food_name=="请输入商品"){
-			window.location.href = "dofood.jsp";
+			window.location.href = "FoodServlet";
 			return ;
 		}
-		window.location.href = "dofood.jsp?food_name="+food_name;
+		window.location.href = "FoodServlet?food_name="+food_name;
 		
 	});
 	$( ".bookmsg input[type='button']").click(function() {
 		var food_id = $(this).attr("title");
 // 		alert(food_id);
-		window.location.href = "doBuyFood.jsp?food_id="+food_id;
+		window.location.href = "CartItem?food_id="+food_id;
 	});
 	
 });
 function last_page(page) {
-	window.location.href = "dofood.jsp?page="+page;
+	window.location.href = "FoodServlet?page="+page;
 }
 </script>
 <style type="text/css">
