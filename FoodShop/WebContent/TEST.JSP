@@ -10,27 +10,27 @@
 <script> 
 $(function(){ 
     $(".add").click(function(){ 
+    	var price =parseFloat($(this).attr("title"));
         var t=$(this).parent().find('input[class*=text_box]'); 
-        t.val(parseInt(t.val())+1) 
-        setTotal(); 
+        t.val(parseInt(t.val())+1)
+        var count = t.val();
+        setTotal(price,count); 
     }) 
     $(".min").click(function(){ 
+    	var price =parseFloat($(this).attr("title"));
         var t=$(this).parent().find('input[class*=text_box]'); 
         t.val(parseInt(t.val())-1) 
         if(parseInt(t.val())<0){ 
         t.val(0); 
-    } 
-    setTotal(); 
+    }
+        var count = t.val();
+        setTotal(price,count);  
 }) 
-function setTotal(){ 
-        var s=0; 
-        $(".sum").each(function(){ 
-        s+=parseInt($(this).find('input[class*=text_box]').val())*parseFloat($(this).find('span[class*=price]').text()); 
-        }); 
-        
-        $("#total").html(s.toFixed(2)); 
+function setTotal(price,count){ 
+        var s=price*count; 
+        $("#total2").html(s.toFixed(2)); 
         } 
-        setTotal(); 
+       /*  setTotal();  */
     }) 
 </script>
 </head>
@@ -46,21 +46,20 @@ function setTotal(){
 					<td>购买数量</td>
 					<td>商品总价</td>
 				</tr>
-				<c:forEach var="car" items="${carItemMap}">
-					<tr>
+				<c:forEach var="car" items="${carItemMap}" varStatus="i">
+					<tr id="sum">
 						<td>${car.value.food.food_name }</td>
 						<td>商品图片</td>
-						<td>${car.value.food.food_price }</td>
-						<td>${car.value.count }</td>
-						<td>${car.value.food.food_price * car.value.count }</td>
+						<td class="price">${car.value.food.food_price}</td>
+						<td><input class="min" name="11${i}" type="button" value="-"
+							title="${car.value.food.food_price}" /> <input class="text_box"
+							name="" type="text" value="${car.value.count }" /> <input
+							class="add" name="12${i}" type="button" value="+"
+							title="${car.value.food.food_price}" /></td>
+						<td id="total" class="${i}">0</td>
 					</tr>
-					<c:set var="total"
-						value="${total+car.value.food.food_price * car.value.count}"></c:set>
+					<%-- <c:set var="total" value="${total+car.value.food.food_price * car.value.count}"></c:set> --%>
 				</c:forEach>
-				<tr>
-					<td>购物总价：</td>
-					<td colspan="5">${total}</td>
-				</tr>
 			</table>
 
 		</div>

@@ -15,7 +15,7 @@ public class CartItemBizImpl implements CartItemBiz{
 	
 	public List<CartItem> addFoods(int id,int num) throws Exception{
 		Connection con = DbUtil.getConnection();
-		List<CartItem> cartItemList = cartItemDao.addFoods(id, num);
+		List<CartItem> cartItemList = ((CartItemBiz) cartItemDao).addFoods(id, num);
 		con.close();
 		return cartItemList;
 		

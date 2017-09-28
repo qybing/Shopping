@@ -106,8 +106,8 @@ public class FoodDaoImpl implements FoodDao{
 		while(rs.next()){
 			 count = rs.getInt(1);
 		}
-//		System.out.println(count);
-//		int rows = rs.getInt("ts");
+	/*	System.out.println(count);
+		int rows = rs.getInt("ts");*/
 		if(count%2==0)
 			return count/2;
 		return count/2+1;

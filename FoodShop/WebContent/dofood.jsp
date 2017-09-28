@@ -3,7 +3,7 @@
 <%@page import="com.jovan.biz.impl.FoodBizImpl"%>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,19 +11,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%
+	<%
 	request.setCharacterEncoding("utf-8");
 	int nowPage = 1;
-	String nowpage = request.getParameter("page");
+	if(request.getParameter("page") != null){
+		nowPage = Integer.parseInt(request.getParameter("page"));
+	}
 	String min_price = request.getParameter("min_price");
 	String max_price =  request.getParameter("max_price");
 	String food_name = request.getParameter("food_name");
-	if(nowpage==null){
-		nowPage = 1;
-	}
-	else{
-		nowPage = Integer.parseInt(nowpage);
-	}
+
 	Food food = new Food();
 	if( min_price != null && !min_price.equals("")){
 		food.setMin_price(Integer.parseInt(min_price));
@@ -38,8 +35,12 @@
 	/* List<Food> foodList = foodBizImpl.findAllFoods(); */
     int pages_sum = foodBizImpl.findFoodsPages(food);
 	/* System.out.print(pages_sum); */ 
-	List<Food> foodList = foodBizImpl.findFoods(nowPage,food);
+	if(nowPage<1||nowPage>pages_sum){
+		nowPage = 1;
+	}
 	
+	List<Food> foodList = foodBizImpl.findFoods(nowPage,food);
+	session.setAttribute("nowPage", nowPage);
 	session.setAttribute("foodList", foodList);
 	session.setAttribute("food", food);
 	session.setAttribute("pages_sum", pages_sum);

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50522
 File Encoding         : 65001
 
-Date: 2017-09-21 16:38:29
+Date: 2017-09-26 10:39:47
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -26,7 +26,7 @@ CREATE TABLE `food` (
   `food_price` decimal(10,2) DEFAULT NULL,
   `food_picture` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of food
@@ -38,6 +38,7 @@ INSERT INTO `food` VALUES ('4', '【天猫超市】卫龙小面筋辣条280g辣�
 INSERT INTO `food` VALUES ('5', '聚【百草味-夹心麻薯210gx3袋】零食小吃特产美食 早餐食品糕点', '百草味旗舰店', '25.90', 'images/picture5.png');
 INSERT INTO `food` VALUES ('6', '【天猫超市】港荣蒸蛋糕1kg早餐糕点手撕小面包网红零食品整箱', '天猫超市', '38.90', 'images/picture6.png');
 INSERT INTO `food` VALUES ('7', '【天猫超市】百草味熟食 白芝麻猪肉脯180g 靖江零食肉干休闲小吃', '天猫超市', '15.90', 'images/picture7.png');
+
 -- ----------------------------
 -- Table structure for users
 -- ----------------------------

@@ -19,7 +19,7 @@ public class CartItemDaoImpl implements CartItemDao {
 	
 	
 	// 查询单个物品
-	public List<CartItem> addFoods(int id,int num) throws Exception{
+	/*public List<CartItem> addFoods(int id,int num) throws Exception{
 		con = DbUtil.getConnection();
 		String sql = "select * from food where id =?";
 		stmt = con.prepareCall(sql);
@@ -35,5 +35,5 @@ public class CartItemDaoImpl implements CartItemDao {
 			
 		}
 		return cartItemList;
-	}
+	}*/
 }

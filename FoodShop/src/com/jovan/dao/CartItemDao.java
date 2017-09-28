@@ -6,6 +6,6 @@ import com.jovan.entity.CartItem;
 
 public interface CartItemDao {
 	
-	public List<CartItem> addFoods(int id,int num) throws Exception;
+	/*public List<CartItem> addFoods(int id,int num) throws Exception;*/
 
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -39,153 +39,161 @@ $(function(){
 		window.location.href = "dofood.jsp?food_name="+food_name;
 		
 	});
-	$("input[name='buy_food']").click(function() {
-		var food_id = $("#buy-food-id").html();
-		alert("2")
-		window.location.href = "doBuyFood.jsp?food_id="+food_id;	
+	$( ".bookmsg input[type='button']").click(function() {
+		var food_id = $(this).attr("title");
+// 		alert(food_id);
+		window.location.href = "doBuyFood.jsp?food_id="+food_id;
 	});
-	var page = 0;
-	$("#next-page").click(function(){
-		page++;	
-		alert(page);
-		window.location.href = "dofood.jsp?page="+page;
-
-	})
-	$("#last-page").click(function () {
-		var page = 1;
-		window.location.href = "dofood.jsp?page="+page;
-		alert(page);
-		
-	})
 	
 });
+function last_page(page) {
+	window.location.href = "dofood.jsp?page="+page;
+}
 </script>
 <style type="text/css">
-html,body,container{
+html, body, container {
 	height: 100%;
 	width: 100%;
 }
-body{
+
+body {
 	padding: 0px;
 	margin: 0px;
 }
-a{	
+
+a {
 	color: black;
 	text-decoration: none;
-	
 }
-#headDiv{
+
+#headDiv {
 	background: url("images/bg2.jpg");
 	height: 15%;
 	text-align: center;
 }
-#h_topDiv{
-	line-height:250%;
+
+#h_topDiv {
+	line-height: 250%;
 	height: 60%;
 	font-size: 70px;
 }
-#h_bottomDiv{
+
+#h_bottomDiv {
 	height: 40%;
 }
-#sxDiv{
+
+#sxDiv {
 	float: left;
 	font-size: 35px;
 	height: 100%;
 	width: 20%;
 }
-#ssDiv{
+
+#ssDiv {
 	float: left;
-	height: 100%; 
+	height: 100%;
 	width: 60%;
 }
 
-#btmDiv{
+#btmDiv {
 	float: left;
 	height: 100%;
-	width:20%;
+	width: 20%;
 }
-#sx{
+
+#sx {
 	display: block;
 	height: 90%;
 	margin-top: 10%;
 }
-.ss{
-	margin-top:2%; 
-	height: 60%; 
+
+.ss {
+	margin-top: 2%;
+	height: 60%;
 	width: 80%;
 	font-size: 30px;
 	color: #CCC;
 }
-#bodyDiv{
+
+#bodyDiv {
 	height: 85%;
 }
-.bookDiv{
+
+.bookDiv {
 	height: 290px;
 	width: 100%;
 }
-.bookDiv img{
+
+.bookDiv img {
 	float: left;
-	padding-left:15%;
+	padding-left: 15%;
 	padding-top: 1%;
 	height: 90%;
-	
 }
-#b_topDiv{
+
+#b_topDiv {
 	height: 20px;
 }
-.bookmsg{
-	float:left;
+
+.bookmsg {
+	float: left;
 	padding-left: 50px;
 	font-size: 40px;
 }
-.bookmsg dd{
+
+.bookmsg dd {
 	margin-top: 20px;
 }
 
-#moreDiv{
-	margin-top:30px;
+#moreDiv {
+	margin-top: 30px;
 	text-align: center;
-	
 }
-#moreBtn,#last-page,#next-page{
-	font-size: 50px;
 
+#moreBtn, #last-page, #next-page {
+	font-size: 50px;
 }
-#b_ssdiv{
+
+#b_ssdiv {
 	display: none;
 	width: 100%;
 	font-size: 35px;
 }
-#sxtab{
+
+#sxtab {
 	width: 100%;
 }
-#sxtab tr{
+
+#sxtab tr {
 	height: 90px;
 	font-size: 35px;
 }
-#sxtab td{
-	padding-left:10%;
+
+#sxtab td {
+	padding-left: 10%;
 }
-.price{
-	border:black 1px solid;
+
+.price {
+	border: black 1px solid;
 	font-size: 35px;
 }
-#type{
+
+#type {
 	font-size: 35px;
 }
-#queren{
+
+#queren {
 	text-align: center;
 }
-#queding{
+
+#queding {
 	font-size: 35px;
 }
 </style>
 </head>
 <body>
 	<div id="headDiv">
-		<div id="h_topDiv">
-			零食
-		</div>
+		<div id="h_topDiv">零食</div>
 		<div id="h_bottomDiv">
 			<div id="sxDiv">
 				<a href="#" id="sx">筛选</a>
@@ -194,50 +202,62 @@ a{
 				<input type="text" name="food_name" class="ss" value="请输入商品" />
 			</div>
 			<div id="btmDiv">
-				<input type="button" name="ssbtn" value="搜索" class="ss" style=" margin-top: 10%;font-size: 40px;" />
+				<input type="button" name="ssbtn" value="搜索" class="ss"
+					style="margin-top: 10%; font-size: 40px;" />
 			</div>
 		</div>
 	</div>
 	<div id="bodyDiv">
 		<div id="b_ssdiv">
 			<form action="dofood.jsp" method="post">
-				<input type="hidden" name="name" value="${food.food_name }">
+				<input type="hidden" name="page" value="1"> <input
+					type="hidden" name="name" value="${food.food_name }">
 				<table id="sxtab">
 					<tr>
 						<th>食品价格：</th>
-						<td><input class="price" size="4" type="text" name="min_price"/> — <input class="price" size="4" type="text" name="max_price"/>&nbsp;元</td>
+						<td><input class="price" size="4" type="text"
+							name="min_price" /> — <input class="price" size="4" type="text"
+							name="max_price" />&nbsp;元</td>
 					</tr>
 					<tr>
-						<td colspan="2" id="queren"><input id="queding" type="submit" value="确定"></td>
+						<td colspan="2" id="queren"><input id="queding" type="submit"
+							value="确定"></td>
 					</tr>
 				</table>
 			</form>
 		</div>
-		<div id="b_topDiv">
-		</div>
-		<c:forEach var="food" items="${foodList}">
-		<div class="bookDiv">
-			<div class="bookmsg">
-				<dl>
-					<dt><img src="${food.food_picture}"/></dt>
-					<dt >${food.food_name }</dt>
-					<dd>商铺：${food.food_store }</dd>
-					<dd>价格：${food.food_price }</dd>
-					<dd id="buy-food-id" style="display:none">${food.id}</dd>
-					<dd><input type="button" name="buy_food" value="立即购买" class="" style="margin-top: 2%;margin-left:40%;font-size: 40px;" /></dd>
-				</dl>
+		<div id="b_topDiv"></div>
+		<c:forEach var="food" items="${foodList}" varStatus="i">
+			<div class="bookDiv">
+				<div class="bookmsg">
+					<dl>
+						<dt>
+							<img src="${food.food_picture}" />
+						</dt>
+						<dt>${food.food_name }</dt>
+						<dd>商铺：${food.food_store }</dd>
+						<dd>价格：${food.food_price }</dd>
+						<dd id="buy-food-id" style="display: none">${food.id}</dd>
+						<dd>
+							<input type="button" title="${food.id}" name="buy_food${i}"
+								id="buy_food" value="立即购买" class=""
+								style="margin-top: 2%; margin-left: 40%; font-size: 40px;" />
+						</dd>
+					</dl>
+				</div>
 			</div>
-		</div>
-		<hr/>
+			<hr />
 		</c:forEach>
-		
-		<div id="moreDiv">	
-			<input id="last-page" type="button" value="上一页"/>
-			<input id="next-page" type="button" value="下一页"/>
-			<p id="moreBtn">共${pages_sum}页 到<input type="text" name="page" style="width: 10%;" id="moreBtn">
-				<input id="moreBtn" type="button" value="确定"/>
+
+		<div id="moreDiv">
+			<a id="moreBtn" href="javascript:last_page(${nowPage-1 })">上一页</a> <a
+				id="moreBtn" href="javascript:last_page(${nowPage+1 })">下一页</a>
+
+			<p id="moreBtn">
+				共${pages_sum}页 到<input type="text" name="page" style="width: 10%;"
+					id="moreBtn"> <input id="moreBtn" type="button" value="确定" />
 			</p>
-		
+
 		</div>
 	</div>
 </body>
